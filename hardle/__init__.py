@@ -4,7 +4,7 @@ import urllib.request
 from urllib.error import HTTPError
 
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 
 def download(har_path: str, out_path: str) -> None:
