@@ -44,9 +44,10 @@ def download(har_path: str, out_path: str) -> None:
 
         safe_path = url.split("://", 1)[1]
 
-        for path in safe_path.split("/"):
-            if len(path) > 255:
-                continue
+        long_path = next((p for p in safe_path.split("/") if len(p) > 255), None)
+
+        if long_path:
+            continue
 
         filename = safe_path.split("/")[-1]
         # FIXME: Maybe use urlparse for this instead?
