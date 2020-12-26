@@ -42,12 +42,11 @@ def download(har_path: str, out_path: str) -> None:
 
         mime = entry["response"]["content"].get("mimeType", "")
 
-        safe_paths = url.split("://", 1)
+        safe_path = url.split("://", 1)[1]
 
-        if [p for p in safe_paths if len(p) > 255]:
-            continue
-
-        safe_path = safe_paths[1]
+        for path in safe_path.split("/"):
+            if len(path) > 255:
+                continue
 
         filename = safe_path.split("/")[-1]
         # FIXME: Maybe use urlparse for this instead?
