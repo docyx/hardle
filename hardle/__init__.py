@@ -26,6 +26,10 @@ def download(har_path: str, out_path: str) -> None:
     for entry in entries:
         url: str = entry["request"]["url"]
 
+        if not url.startswith("http"):
+            # TODO: Support websockets?
+            continue
+
         ok_req = urllib.request.Request(url, method="HEAD")
 
         try:
