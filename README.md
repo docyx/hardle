@@ -2,13 +2,6 @@
 
 A simple & lightweight utility for (synchronously) downloading content from .HAR files. Useful when you want to download static sites for offline use.
 
-test
-```jinja
-<html>
-<p></p>asdf
-</html>
-```
-
 ## Installation
 
 ```
